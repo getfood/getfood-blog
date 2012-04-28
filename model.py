@@ -153,6 +153,7 @@ class Blog(db.Model):
     subtitle = db.StringProperty(default='This is a micro blog.')
     entrycount = db.IntegerProperty(default=0)
     posts_per_page= db.IntegerProperty(default=10)
+    static_url = db.StringProperty(default=None)
     feedurl = db.StringProperty(default='/feed')
     blogversion = db.StringProperty(default='0.30')
     theme_name = db.StringProperty(default='default')
