@@ -1,6 +1,13 @@
+User-agent: Sosospider
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
 User-agent: *
 Crawl-delay: 10
 
+Disallow: /media/
 Disallow: /admin/
 Disallow: /rpc/
 Disallow: /myadmin/

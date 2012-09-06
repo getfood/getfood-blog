@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rsd version="1.0" xmlns="http://blog.perlfect.me/rsd">
+  <service>
+    <engineName>Micolog</engineName>
+    <engineLink>http://wordpress.org/</engineLink>
+    <homePageLink>http://blog.perlfect.me</homePageLink>
+    <apis>
+       <api name="WordPress" blogID="1" preferred="false" apiLink="http://blog.perlfect.me/xmlrpc.php" />
+       <api name="Micolog" blogID="1" preferred="true" apiLink="http://blog.perlfect.me/rpc" />
+	 </apis>
+  </service>
+</rsd>

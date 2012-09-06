@@ -4,7 +4,6 @@ font : 0.9em Tahoma, Verdana, sans-serif;
 color : #333;
 margin : 0;
 padding : 0;
-min-width: 998px;
 }
 #dashboard a {
 text-decoration : none;
@@ -90,8 +89,9 @@ color : #ccc;
 padding : 5px 0;
 }
 #dashboard .dash {
+width : 972px;
 text-align : right;
-margin : auto 15px;
+margin : auto;
 }
 #searchtop {
 float : left;
@@ -120,7 +120,8 @@ border-bottom : 1px solid #c6d9e9;
 padding : 10px 0;
 }
 .headings {
-margin : auto 15px;
+width : 972px;
+margin : auto;
 }
 #header h1 {
 font : normal 2em Georgia, "Times New Roman", Times, serif;
@@ -142,11 +143,10 @@ display : block;
 margin : 0 0 15px;
 padding : 0;
 }
-* html #nav{_height:28px;}
 #nav ul {
 list-style : none;
-
-margin : 10px 15px;
+width : 972px;
+margin : 10px auto;
 padding : 0;
 }
 #nav ul li {
@@ -159,9 +159,10 @@ margin : 0;
 padding : 0 20px 0 0;
 }
 #container {
+width : 972px;
 min-height : 300px;
 height : auto !important ;
-margin : 0 15px;
+margin : 0 auto;
 padding : 0 0 20px;
 }
 #featured {
@@ -335,6 +336,7 @@ margin : 0;
 padding : 0;
 }
 .footerinner {
+width : 972px;
 margin : auto;
 padding : 15px 0 45px;
 }
@@ -382,6 +384,8 @@ padding : 5px;
 color : #dadada;
 }
 #credits {
+float : left;
+width : 962px;
 font-size : 0.8em;
 color : #ccc;
 height : 29px;
@@ -510,6 +514,7 @@ background : #d54e21;
 color : #fff;
 }
 #footer .flogo {
+background : url(/static/images/mlog.png) no-repeat;
 width : 400px;
 height : 32px;
 padding-left : 40px;
@@ -771,11 +776,9 @@ color : #d7d7d7;
 #poststuff #post-body {
 margin-right : 230px;
 }
-
-* html #poststuff .entry-editor {
-_width : 780px;
-_float : left;
-_margin-right:0px!important;
+#poststuff #post-body2 {
+width : 740px;
+float : left;
 }
 .submitbox {
 float : right;
@@ -818,7 +821,7 @@ width:300px;
 #postarea a{cursor:pointer}
 #postarea .title{float:left}
 #postarea .editor-toolbar span {
-font-weight : bold;
+font-weight : blod;
 height : 20px;
 margin : 0 5px;
 padding : 3px 5px 0;
@@ -886,7 +889,7 @@ font-size : 12px;
 text-align : center;
 border-left : 0;
 border-right : 0;
-margin : 5px 15px;
+margin : 5px 20px;
 padding : 5px 0;
 }
 #hiddenmessage .error {
@@ -894,19 +897,16 @@ color : red;
 }
 #nav2 #dnav2{
 border-bottom:1px solid #DADADA;
-margin:0 15px;
-padding:0 0 6px;
+margin:0 20px;
+padding:0 0 12px;
 
 }
-#nav2 ul{height:20px;margin-bottom:0;list-style-type:none;margin-left:0;padding:0}
-#nav2 ul li{display:block;float:left;}
-
 #nav2 a {
 color : #2583ad;
 text-decoration : none;
 padding-right : 10px;
 }
-#titlewrap input,.f_text input{width:95%}
+#titlewrap input,.f_text input{width:100%}
 #poststuff #titlewrap ,.f_text{
 border-color : #ccc;
 border-style : solid;
@@ -1128,42 +1128,3 @@ font-size:11px;
 }
 #lang_menu a:hover{background:#333333 none repeat scroll 0 0;
 color:#FFFFFF !important;}
-
-
-#popgrin-container {
-background:url(/static/images/loading.gif) no-repeat scroll 100% 100% #F7F7F7;
-border:1px solid #B6B6B6;
-color:#555555;
-display:none;
-font-size:0.92em;
-height:auto;
-left:5px;
-line-height:168%;
-margin:0;
-padding:5px;
-position:absolute;
-top:-10px;
-width:250px;
-}
-
-#popgrin-close {
-background:url("/static/images/close.gif") no-repeat scroll 0 0 transparent;
-border:medium none;
-color:#2F63B3;
-display:block;
-float:right;
-margin:0;
-outline-style:none;
-padding:0;
-text-decoration:none;
-text-indent:-999em;
-width:8px;
-}
-
-#popgrin-content a {
-color:#555555;
-outline-style:none;
-text-decoration:none;
-font-family:Microsoft Yahei,Arial;
-font-size:14px;
-}

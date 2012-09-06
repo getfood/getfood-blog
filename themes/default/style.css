@@ -10,10 +10,10 @@ Tags: blue, white, fixed width, two columns, widgets, rounded corners
 
 /*...... body ........*/
 * { margin: 0px; padding: 0px; list-style:none; text-decoration:none; }
-body { background:url(images/topbkg.gif) repeat-x; font:0.69em Verdana, Arial, Helvetica, sans-serif; color:#333;}
+body { background:url(images/topbkg.gif) repeat-x; font:0.9em Verdana, Arial, Helvetica, sans-serif; color:#333;}
 
 /*...... links ........*/
-a { color:#2583ad;font-size:1.1em}
+a { color:#2583ad;}
 a:hover { color:#000;}
 
 /*...... main and sticky footer ........*/
@@ -55,7 +55,7 @@ height:30px; }
 
 /*...... content ........*/
 #split { width:700px; float:left;}
-#content { width:930px; margin:auto; padding-top:10px;}
+#content { width:940px; margin:auto; padding-top:10px;}
 #content p { padding-bottom:10px;}
 
 /*...... entry ........*/
@@ -66,21 +66,21 @@ height:30px; }
 .box p.dpost { display:block; background:#f6f6f6; padding:5px 5px 5px 10px; margin:10px 0 0 0; clear:both;}
 .box p.dpost a { font-weight:normal; }
 .box p a { font-weight:bold;}
-.box p { }
-.en_body{padding:8px;font-size:1.1em;line-height:1.6}
+.box p { line-height:140%;}
 .meta { display:block; background:#f6f6f6; padding:10px; margin:10px 0 5px 0; }
 .meta p { padding-bottom:10px;}
 .space { display:block; height:15px;}
-.nifty { display:block; padding:10px; margin-bottom:5px; background:#e4f2fd; border:1px solid #f0f0f0;}
+.nifty { display:block; padding:10px; margin-bottom:10px; background:#e4f2fd; border:1px solid #f0f0f0;}
 .box img { border:1px solid #dadada; padding:3px;}
 .box img.wp-smiley { border:none; vertical-align:middle;}
 
 /*...... sidebar ........*/
-.sidebar { border:1px solid  #f0f0f0; width:190px; float:right; padding:12px; margin-top:5px; margin-bottom:20px;}
-.sidebar h2 { display:block; padding:5px; margin-bottom:10px; background:#e4f2fd; border:1px solid #f0f0f0;}
-.sidebar ul { }
-.sidebar ul li { padding-bottom:10px;}
-.sidebar ul li a { background:url(images/bullet.gif) no-repeat 0 3px; padding-left:15px; display:block;}
+/*.sidebar { border:1px solid  #f0f0f0; width:205px; float:right; padding:12px; margin-top:5px; margin-bottom:20px;}*/
+.sideb { border:1px solid  #f0f0f0; width:205px; float:right; padding:12px; margin-top:5px; margin-bottom:20px;}
+.sideb h2 { display:block; padding:5px; margin-bottom:10px; background:#e4f2fd; border:1px solid #f0f0f0;}
+.sideb ul { }
+.sideb ul li { padding-bottom:10px;}
+.sideb ul li a { background:url(images/bullet.gif) no-repeat 0 3px; padding-left:15px; display:block;}
 
 /*...... misc ........*/
 img.centered { display: block; margin-left: auto; margin-right: auto; }
@@ -103,7 +103,7 @@ acronym, abbr, span.caps { font-size: 0.9em; letter-spacing: .07em; }
 
 /*...... comments ........*/
 h3#comments, h3#respond { font:1.3em Georgia, serif; margin-bottom:30px; background:#fcfcfc; display:block; padding:5px; border-bottom:1px dashed #ccc; text-transform:uppercase; }
-.box ol.commentlist { width:670px; clear:both; padding: 0; }
+.box ol.commentlist { width:670px; clear:both; padding: 0 0 0 -25px;  }
 .box ol.commentlist li.alt { background:#fafafa; color:#333; padding:5px; margin-bottom:5px; list-style:none;  }
 .box ol.commentlist li { color:#333; padding:5px; margin-bottom:5px;  }
 .box ol.commentlist li .gravatar { float:left; border:3px double #dadada; width:55px; margin-right:5px;}

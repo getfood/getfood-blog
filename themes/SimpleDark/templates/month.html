@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} {{year}}年{{month}}月-{{blog.title|escape}} {% endblock %}
+{% block head_block %}
+<meta name="Keywords" content=" {{year}}年{{month}}月,{{blog.title|escape}}" />
+<meta name="Description" content=" {{year}}年{{month}}月的文章归档" />
+{% endblock %}
+{% block content %}
+<div id="main">
+  <div id="content">
+    <div class="content-header"> &laquo; <strong>{{year}}年{{month}}月</strong> 的文章归档 </div>
+    {% for entry in entries %}
+    <div id="post-{{entry.key}}" class="post">
+      <h2 class="post-title"><a href="/{{ entry.link|escape }}" title="{{ entry.title|escape }} ">{{ entry.title|escape }}</a></h2>
+      <div class="post-meta">{{ entry.date|datetz:"F jS, Y, H:i" }} {{entry.author}} / <a href="/{{entry.link|escape}}">{{entry.readtimes}} 次阅读</a> / <a href="/{{entry.link|escape}}#comments" title="查看 {{ entry.title}} 下的全部评论">{{entry.commentcount}} 条评论</a>{%if self.is_admin%} / <a class="post-edit-link" href="{{entry.edit_url}}"  title="编辑文章" target="_blank">编辑</a>{%endif%} </div>
+      <div class="post-info">分类：{%for cate in entry.categories%}&nbsp;<a href="/category/{{cate.slug}}" title="查看 {{cate.name}} 下的全部文章">{{cate.name}}</a>&nbsp;&nbsp;{%endfor%}标签：{% if entry.tags%}{%for tag in entry.tags%}&nbsp;<a href="/tag/{{tag|urlencode}}" title="查看 {{tag}} 标签的全部文章">{{tag}}</a>&nbsp;{%endfor%}{%endif%} </div>
+    </div>
+    {% endfor %}
+    <div class="pagenavi"> <span class="previous-page"> {% if pager.prev %}&laquo;&nbsp;<a href="?page={{ pager.prev}}">上一页</a>{% endif %} </span> <span class="next-page"> {% if pager.next %}<a href="?page={{ pager.next }}">下一页</a>&nbsp;&raquo;{% endif %} </span> </div>
+  </div>
+  {% include "sidebar.html" %} </div>
+{% endblock %}

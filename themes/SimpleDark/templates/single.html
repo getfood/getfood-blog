@@ -1,0 +1,41 @@
+﻿{% extends "base.html" %}
+{% block title %} {{entry.title|escape}} - {{blog.title|escape}} {% endblock %}
+{% block head_block %}
+{% if entry %}
+{%if entry.strtags%}
+<meta name="Keywords" content="{{entry.strtags|escape}}">
+{%endif%}
+{%if entry.excerpt%}
+<meta name="Description" content="{{entry.excerpt|escape}}">
+{%endif%}
+{% endif %}
+{% endblock %}
+{% block content %}
+<div id="main">
+  <div id="content">
+    <div id="post-{{entry.key}}" class="post">
+      <h2 class="post-title"><a href="/{{ entry.link|escape }}" title="{{ entry.title|escape }} ">{{ entry.title|escape }}</a></h2>
+      <div class="post-meta">{{ entry.date|datetz:"F jS, Y, H:i" }} {{entry.author}} / <a href="/{{entry.link|escape}}">{{entry.readtimes}} 次阅读</a> / <a href="/{{entry.link|escape}}#comments" title="查看 {{ entry.title}} 下的全部评论">看评论</a>{%if self.is_admin%} / <a href="{{entry.edit_url}}"  title="编辑文章" target="_blank">编辑</a>{%endif%} </div>
+      <div class="entry"> {{ entry.content }} </div>
+      <div class="post-info">分类：{%for cate in entry.categories%}&nbsp;<a href="/category/{{cate.slug}}" title="查看 {{cate.name}} 下的全部文章">{{cate.name}}</a>&nbsp;&nbsp;{%endfor%}标签：{% if entry.tags%}{%for tag in entry.tags%}&nbsp;<a href="/tag/{{tag|urlencode}}" title="查看 {{tag}} 标签的全部文章">{{tag}}</a>&nbsp;{%endfor%}{%endif%} </div>
+    </div>
+    <div class="pagenavi"> {%for prev in entry.prev%} <span class="previous-page">&laquo;&nbsp;<a href="/{{prev.link}}">{{prev.title}}</a></span> {%endfor%}
+      {%for next in entry.next%} <span class="next-page"><a href="/{{next.link}}">{{next.title}}</a>&nbsp;&raquo;</span> {%endfor%} </div>
+    <div class="wumii-hook">
+    <input type="hidden" name="wurl" value="{{blog.baseurl}}/{{ entry.link }}" />
+    <input type="hidden" name="wtitle" value="{{entry.title}}" />
+</div>
+<p style="display: none;">
+    {%for tag in entry.tags%}<a rel="tag">{{tag}}</a>{%endfor%}
+</p>
+<script>
+    var wumiiSitePrefix = "{{blog.baseurl}}";
+</script>
+<div class=share>
+  <a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮
+  </a><script language="javascript" type="text/javascript" src="http://www.bshare.cn/button.js#uuid=fdc6216e-460e-4354-8eed-cd34cbbd803b&style=2&textcolor=#dddddd&bgcolor=none&bp=sinaminiblog,greader,twitter,linkedin,douban,renren,facebook,reddit&ssc=false&sn=true&text=Share"></script>
+</div>
+    {% include "comment_disqus.html" %} </div>
+    {% include "comment.html" %} </div>
+  {% include "sidebar.html" %} </div>
+{% endblock %}
