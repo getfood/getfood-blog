@@ -10,7 +10,7 @@ Tags: blue, white, fixed width, two columns, widgets, rounded corners
 
 /*...... body ........*/
 * { margin: 0px; padding: 0px; list-style:none; text-decoration:none; }
-body { background:url(images/topbkg.gif) repeat-x; font:0.9em Verdana, Arial, Helvetica, sans-serif; color:#333;}
+body { background:url(images/topbkg.gif) repeat-x; font: Verdana, Arial, Helvetica, sans-serif; color:#333;}
 
 /*...... links ........*/
 a { color:#2583ad;}
