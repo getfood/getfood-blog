@@ -3,7 +3,8 @@ import cgi, os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 from google.appengine.dist import use_library
 use_library('django', '1.2')
-import wsgiref.handlers
+#import wsgiref.handlers
+from google.appengine.ext.webapp.util import run_wsgi_app
 
 # Google App Engine imports.
 ##import app.webapp as webapp2
@@ -360,7 +361,7 @@ class SinglePost(BasePublicPage):
             return "/"+url+"?mp="+str(pindex)+"#comments"
 
 class FeedHandler(BaseRequestHandler):
-    @cache(time=600)
+    @cache(time=18000)
     def get(self,tags=None):
         entries = Entry.all().filter('entrytype =','post').filter('published =',True).order('-date').fetch(10)
         if entries and entries[0]:
@@ -680,7 +681,8 @@ def main():
     application = webapp.WSGIApplication(urls)
     g_blog.application=application
     g_blog.plugins.register_handlerlist(application)
-    wsgiref.handlers.CGIHandler().run(application)
+    #wsgiref.handlers.CGIHandler().run(application)
+    run_wsgi_app(application)
 
 if __name__ == "__main__":
     main()
