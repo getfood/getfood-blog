@@ -1,8 +1,5 @@
 ﻿# -*- coding: utf-8 -*-
 import os,logging
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-from google.appengine.dist import use_library
-use_library('django', '1.2')
 from google.appengine.ext import db
 from google.appengine.ext.db import Model as DBModel
 from google.appengine.api import memcache
@@ -855,7 +852,6 @@ def InitBlogData():
     g_blog.domain=os.environ['HTTP_HOST']
     g_blog.baseurl="http://"+g_blog.domain
     g_blog.feedurl=g_blog.baseurl+"/feed"
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
     g_blog.admin_essential = False
     if os.environ.has_key('HTTP_ACCEPT_LANGUAGE'):
         lang=os.environ['HTTP_ACCEPT_LANGUAGE'].split(',')[0]
@@ -894,7 +890,6 @@ def gblog_init():
 try:
     g_blog=gblog_init()
 
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
     from django.utils.translation import activate
     from django.conf import settings
     settings._target = None

@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-from google.appengine.dist import use_library
-use_library('django', '1.2')
 import wsgiref.handlers
 from django.conf import settings
 settings._target = None
@@ -29,7 +26,6 @@ class setlanguage(base.BaseRequestHandler):
             next = os.environ['HTTP_REFERER']
         if not next:
             next = '/'
-        os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
         from django.utils.translation import check_for_language, activate
         from django.conf import settings
         settings._target = None

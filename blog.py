@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 import cgi, os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-from google.appengine.dist import use_library
-use_library('django', '1.2')
 #import wsgiref.handlers
 from google.appengine.ext.webapp.util import run_wsgi_app
 
 # Google App Engine imports.
 ##import app.webapp as webapp2
 
+import webapp2 as webapp
+
 from datetime import timedelta
 import random
+
 from django.utils import simplejson
 import app.filter as myfilter
 from app.safecode import Image
@@ -19,7 +19,9 @@ from base import *
 from model import *
 from django.utils.translation import ugettext as _
 
-##os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+from django.template.loader import add_to_builtins
+
+add_to_builtins('app.filter')
 ##from django.utils.translation import  activate
 ##from django.conf import settings
 ##settings._target = None
@@ -655,34 +657,57 @@ class Other(BaseRequestHandler):
 def getZipHandler(**args):
     return ('/xheditor/(.*)',zipserve.make_zip_handler('''D:\\Projects\\eric-guo\\plugins\\xheditor\\xheditor.zip'''))
 
-def main():
-    webapp.template.register_template_library('app.filter')
-    webapp.template.register_template_library('app.recurse')
-    urls=	[('/media/([^/]*)/{0,1}.*',getMedia),
-            ('/checkimg/', CheckImg),
-            ('/checkcode/', CheckCode),
-            ('/skin',ChangeTheme),
-            ('/feed', FeedHandler),
-            ('/feed/comments',CommentsFeedHandler),
-            ('/sitemap', SitemapHandler),
-            ('/sitemap\.xml', SitemapHandler),
-            ('/post_comment',Post_comment),
-            ('/page/(?P<page>\d+)', MainPage),
-            ('/category/(.*)',entriesByCategory),
-            ('/(\d{4})/(\d{1,2})',archive_by_month),
-            ('/tag/(.*)',entriesByTag),
-            #('/\?p=(?P<postid>\d+)',SinglePost),
-            ('/', MainPage),
-            ('/do/(\w+)', do_action),
-            ('/e/(.*)',Other),
-            ('/([\\w\\-\\./%]+)', SinglePost),
-            ('.*',Error404),
-            ]
-    application = webapp.WSGIApplication(urls)
-    g_blog.application=application
-    g_blog.plugins.register_handlerlist(application)
-    #wsgiref.handlers.CGIHandler().run(application)
-    run_wsgi_app(application)
+#def main():
+webapp.template.register_template_library('app.filter')
+webapp.template.register_template_library('app.recurse')
+'''
+urls=	[('/media/([^/]*)/{0,1}.*',getMedia),
+        ('/checkimg/', CheckImg),
+        ('/checkcode/', CheckCode),
+        ('/skin',ChangeTheme),
+        ('/feed', FeedHandler),
+        ('/feed/comments',CommentsFeedHandler),
+        ('/sitemap', SitemapHandler),
+        ('/sitemap\.xml', SitemapHandler),
+        ('/post_comment',Post_comment),
+        ('/page/(?P<page>\d+)', MainPage),
+        ('/category/(.*)',entriesByCategory),
+        ('/(\d{4})/(\d{1,2})',archive_by_month),
+        ('/tag/(.*)',entriesByTag),
+        #('/\?p=(?P<postid>\d+)',SinglePost),
+        ('/', MainPage),
+        ('/do/(\w+)', do_action),
+        ('/e/(.*)',Other),
+        ('/([\\w\\-\\./%]+)', SinglePost),
+        ('.*',Error404),
+        ]
+        '''
+urls=	[('/media/([^/]*)/{0,1}.*',getMedia),
+        ('/checkimg/', CheckImg),
+        ('/checkcode/', CheckCode),
+        ('/skin',ChangeTheme),
+        ('/feed', FeedHandler),
+        ('/feed/comments',CommentsFeedHandler),
+        ('/sitemap', SitemapHandler),
+        ('/sitemap\.xml', SitemapHandler),
+        ('/post_comment',Post_comment),
+        ('/page/(?P<page>\d+)', MainPage),
+        ('/category/(.*)',entriesByCategory),
+        ('/(\d{4})/(\d{1,2})',archive_by_month),
+        ('/tag/(.*)',entriesByTag),
+        #('/\?p=(?P<postid>\d+)',SinglePost),
+        ('/', MainPage),
+        ('/do/(\w+)', do_action),
+        ('/e/(.*)',Other),
+        ('/([\\w\\-\\./%]+)', SinglePost),
+        ('.*',Error404),
+        ]
 
-if __name__ == "__main__":
-    main()
+application = webapp.WSGIApplication(urls)
+g_blog.application=application
+g_blog.plugins.register_handlerlist(application)
+    #wsgiref.handlers.CGIHandler().run(application)
+#run_wsgi_app(application)
+
+#if __name__ == "__main__":
+#    main()

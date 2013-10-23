@@ -124,3 +124,13 @@ h3#comments, h3#respond { font:1.3em Georgia, serif; margin-bottom:30px; backgro
 #footer p.fooleft { float:left;}
 #footer p.fooright { float:right; text-indent:-9999px;}
 #footer p.fooright a { display:block; background:url(images/top.gif) no-repeat 0 8px; width:27px; height:31px;}
+
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}

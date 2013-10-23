@@ -44,8 +44,6 @@ http://www.djangoproject.com/documentation/templates/
 
 import hashlib
 import os,logging
-from google.appengine.dist import use_library
-use_library('django', '1.2')
 import django
 
 import django.conf

@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 import os,logging
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-from google.appengine.dist import use_library
-use_library('django', '1.2')
 import functools
 from google.appengine.api import users
 from google.appengine.ext import webapp
@@ -224,15 +221,15 @@ class Pager(object):
 
 
 class BaseRequestHandler(webapp.RequestHandler):
-    def __init__(self):
+    def __init__(self, request=None, response=None):
         self.current='home'
+        self.initialize(request, response)
 
 ##	def head(self, *args):
 ##		return self.get(*args)
 
     def initialize(self, request, response):
         webapp.RequestHandler.initialize(self, request, response)
-        os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
         from model import g_blog,User
         self.blog = g_blog
         self.login_user = users.get_current_user()
