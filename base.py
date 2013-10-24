@@ -107,7 +107,7 @@ def cache(key="",time=3600):
                     response.last_modified = format_date(datetime.utcnow())
 
                 method(*args, **kwargs)
-                result=response.out.getvalue()
+                result=response.out.body
                 status_code = response._Response__status[0]
                 logging.debug("Cache:%s"%status_code)
                 memcache.set(skey,(result,response.last_modified,status_code,response.headers),time)
