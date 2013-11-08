@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import os,logging
 from google.appengine.ext import db
 from google.appengine.ext.db import Model as DBModel
@@ -150,7 +150,7 @@ class Blog(db.Model):
     subtitle = db.StringProperty(default='This is a micro blog.')
     entrycount = db.IntegerProperty(default=0)
     posts_per_page= db.IntegerProperty(default=10)
-    static_url = db.StringProperty(default=None)
+    static_url = db.StringProperty(default='')
     feedurl = db.StringProperty(default='/feed')
     blogversion = db.StringProperty(default='0.30')
     theme_name = db.StringProperty(default='default')
