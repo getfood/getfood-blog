@@ -4,9 +4,9 @@
 <head>
 <title>{%trans "Files"%}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/static/upload/upload.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ blog.static_url }}/static/upload/upload.css" type="text/css" media="screen" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript" src="/static/upload/ajaxupload.js"></script>
+<script type="text/javascript" src="{{ blog.static_url }}/static/upload/ajaxupload.js"></script>
 <script type="text/javascript">
 function fixHeight(){$('#listArea').css('height',(document.body.clientHeight-56)+'px');}
 function getQuery(item){var svalue = location.search.match(new RegExp('[\?\&]' + item + '=([^\&]*)(\&?)','i'));return svalue?decodeURIComponent(svalue[1]):'';}
@@ -50,7 +50,7 @@ new AjaxUpload(button, {
 			file=eval('(' + response + ')');
 
 
-			$('#listBody').prepend('<tr id="f'+file.id+'"><td>'+file.name+'</td><td>'+formatBytes(file.size)+'</td><td id="f'+file.id+'_state"><a href="javascript:void(0);" id="btnClear" onclick="$(this).parent().parent().dblclick();" class="btn" ><span><img src="/static/upload/img/blueball.gif" /> {% trans "Add"%}</span></a></td></tr>');
+			$('#listBody').prepend('<tr id="f'+file.id+'"><td>'+file.name+'</td><td>'+formatBytes(file.size)+'</td><td id="f'+file.id+'_state"><a href="javascript:void(0);" id="btnClear" onclick="$(this).parent().parent().dblclick();" class="btn" ><span><img src="{{ blog.static_url }}/static/upload/img/blueball.gif" /> {% trans "Add"%}</span></a></td></tr>');
 			$('#f'+file.id).hover(function(){$(this).addClass('hover');},function(){$(this).removeClass('hover');})
 			.click(function(){selectID=file.id;$('#listBody tr').removeClass('select');$(this).removeClass('hover').addClass('select');$('#btnClear').show();})
             .dblclick(function(){callback('{{blog.baseurl}}/media/'+file.id+'/'+file.name);});
@@ -82,7 +82,7 @@ if (typeof callback=="undefined")
 			<div id="controlBtns" ><span style="color:red;" id="msg"></span></div>
  		<a href="javascript:void(0);" id="addFiles" class="btn">
             <span>
-            <div style="width: 16px; float: left; padding-right: 5px; background-image: url(/static/upload/img/add2.gif); background-repeat: no-repeat; height: 18px;"></div>
+            <div style="width: 16px; float: left; padding-right: 5px; background-image: url({{ blog.static_url }}/static/upload/img/add2.gif); background-repeat: no-repeat; height: 18px;"></div>
     		<div id="divAddFiles" style="width:80px;">{% trans "New file"%}</div>
             </span>
         </a>
@@ -92,7 +92,7 @@ if (typeof callback=="undefined")
 				<thead id="listTitle"><tr><td width="53%">{% trans "Filename"%}</td><td width="25%">{% trans "Size"%}</td><td width="22%">{% trans "Operater"%}</td></tr></thead>
 				<tbody id="listBody">
 		{%for file in files%}
-		<tr onclick="selectID='{{file.key}}';$('#listBody tr').removeClass('select');$(this).removeClass('hover').addClass('select');$('#btnClear').show();" ondblclick="callback('{{blog.baseurl}}/media/{{file.key}}/{{file.name}}');"><td>{{file.name}}</td><td>{{file.size|filesizeformat}}</td><td><a href="javascript:void(0);" id="btnClear" onclick="$(this).parent().parent().dblclick();" class="btn" ><span><img src="/static/upload/img/blueball.gif" /> {% trans "Add"%}</span></a></td></tr>
+		<tr onclick="selectID='{{file.key}}';$('#listBody tr').removeClass('select');$(this).removeClass('hover').addClass('select');$('#btnClear').show();" ondblclick="callback('{{blog.baseurl}}/media/{{file.key}}/{{file.name}}');"><td>{{file.name}}</td><td>{{file.size|filesizeformat}}</td><td><a href="javascript:void(0);" id="btnClear" onclick="$(this).parent().parent().dblclick();" class="btn" ><span><img src="{{ blog.static_url }}/static/upload/img/blueball.gif" /> {% trans "Add"%}</span></a></td></tr>
 		{%endfor%}
 				</tbody>
 			</table>

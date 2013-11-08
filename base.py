@@ -16,6 +16,10 @@ from mimetypes import types_map
 from datetime import datetime
 import urllib
 import traceback
+
+from django.template.loader import add_to_builtins
+
+add_to_builtins('app.filter')
 import micolog_template
 
 
@@ -329,7 +333,7 @@ class BaseRequestHandler(webapp.RequestHandler):
         """
         self.template_vals.update(template_vals)
         path = os.path.join(os.path.dirname(__file__), template_file)
-        self.response.out.write(template.render(path, self.template_vals))
+        self.response.out.write(unicode(template.render(path, self.template_vals)))
 
     def param(self, name, **kw):
         return self.request.get(name, **kw)

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block header %}
-<script src='/static/js/jquery.blockUI.js' type="text/javascript"></script>
+<script src='{{ blog.static_url }}/static/js/jquery.blockUI.js' type="text/javascript"></script>
 <script type="text/javascript">
 
 
@@ -12,7 +12,7 @@
 
 	 function init_blog()
 	 {
-	    $.blockUI({ message: '<h3 id="bmsg"><img src="/static/images/busy.gif" /> Init data now...</h3>' });
+	    $.blockUI({ message: '<h3 id="bmsg"><img src="{{ blog.static_url }}/static/images/busy.gif" /> Init data now...</h3>' });
 	 	$.getJSON("/admin/do/init_blog", function(json){
 	 		  $('#bmsg').html(json+'<br/><input type="button" value="Ok" onclick="$.unblockUI()"></input>');
 	 		  $('.blockUI').css('cursor','');
@@ -22,7 +22,7 @@
 
 	 function update_link()
 	 {
-	    $.blockUI({ message: '<h3 id="bmsg"><img src="/static/images/busy.gif" /> Rebuild URLs now...</h3>' });
+	    $.blockUI({ message: '<h3 id="bmsg"><img src="{{ blog.static_url }}/static/images/busy.gif" /> Rebuild URLs now...</h3>' });
 	 	$.getJSON("/admin/do/updatelink",{'linkfmt':$('#link_format').val()}, function(json){
 	 		  $('#bmsg').html(json+'<br/><input type="button" value="Ok" onclick="$.unblockUI()"></input>');
 	 		  $('.blockUI').css('cursor','');
@@ -32,7 +32,7 @@
 	 }
 	 function update_comments()
 	 {
-	    $.blockUI({ message: '<h3 id="bmsg"><img src="/static/images/busy.gif" /> Refresh comments now...</h3>' });
+	    $.blockUI({ message: '<h3 id="bmsg"><img src="{{ blog.static_url }}/static/images/busy.gif" /> Refresh comments now...</h3>' });
 	 	$.getJSON("/admin/do/updatecomments", function(json){
 	 		   $('#bmsg').html(json+'<br/><input type="button" value="Ok" onclick="$.unblockUI()"></input>');
 	 		   $('.blockUI').css('cursor','');
@@ -41,7 +41,7 @@
 	 }
 	 function update_commentno()
 	 {
-	    $.blockUI({ message: '<h3 id="bmsg"><img src="/static/images/busy.gif" /> Refresh comment number now...</h3>' });
+	    $.blockUI({ message: '<h3 id="bmsg"><img src="{{ blog.static_url }}/static/images/busy.gif" /> Refresh comment number now...</h3>' });
 	 	$.getJSON("/admin/do/updatecommentno", function(json){
 	 		   $('#bmsg').html(json+'<br/><input type="button" value="Ok" onclick="$.unblockUI()"></input>');
 	 		   $('.blockUI').css('cursor','');
@@ -50,7 +50,7 @@
 	 }
 	function update_archives()
 	{
-	   $.blockUI({ message: '<h3 id="bmsg"><img src="/static/images/busy.gif" /> Refresh archives now...</h3>' });
+	   $.blockUI({ message: '<h3 id="bmsg"><img src="{{ blog.static_url }}/static/images/busy.gif" /> Refresh archives now...</h3>' });
 		$.getJSON("/admin/do/update_archives", function(json){
 			   $('#bmsg').html(json+'<br/><input type="button" value="Ok" onclick="$.unblockUI()"></input>');
 			   $('.blockUI').css('cursor','');
@@ -59,7 +59,7 @@
 	}
 	 function update_tags()
 	 {
-	    $.blockUI({ message: '<h3 id="bmsg"><img src="/static/images/busy.gif" /> Refresh tags now...</h3>' });
+	    $.blockUI({ message: '<h3 id="bmsg"><img src="{{ blog.static_url }}/static/images/busy.gif" /> Refresh tags now...</h3>' });
 	 	$.getJSON("/admin/do/update_tags", function(json){
 	 		   $('#bmsg').html(json+'<br/><input type="button" value="Ok" onclick="$.unblockUI()"></input>');
 	 		   $('.blockUI').css('cursor','');

@@ -43,7 +43,7 @@
 /* ]]> */
 </script>
 {%mf editor_header%}
-<script language="javascript" type="text/javascript" src="/static/js/editor.js"></script>
+<script language="javascript" type="text/javascript" src="{{ blog.static_url }}/static/js/editor.js"></script>
 
 <script type="text/javascript" src="/tinymce/tiny_mce.js"></script>
 <script type="text/javascript" src="/tinymce/jquery.tinymce.js"></script>
@@ -88,8 +88,8 @@
 				// Drop lists for link/image/media/template dialogs
 				//template_external_list_url : "lists/template_list.js",
 				//external_link_list_url : "lists/link_list.js",
-				//external_image_list_url : "/static/js/image_list.js",
-				//media_external_list_url : "/static/js/image_list.js",
+				//external_image_list_url : "{{ blog.static_url }}/static/js/image_list.js",
+				//media_external_list_url : "{{ blog.static_url }}/static/js/image_list.js",
 				file_browser_callback: 'micolog_file',
     			relative_urls: false
 
@@ -251,7 +251,7 @@
 </h3>
 
 <div id="quicktags" style="display: none;">
-<script src="/static/js/quicktags.js" type="text/javascript"></script>
+<script src="{{ blog.static_url }}/static/js/quicktags.js" type="text/javascript"></script>
 <script type="text/javascript">edToolbar('content')</script>
 </div>
 
