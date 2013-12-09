@@ -17,6 +17,7 @@ file_modifieds={}
 max_age = 600  #expires in 10 minutes
 def Error404(handler):
     handler.response.set_status(404)
+    logging.info("Path not found: " + self.request.path)
     html = template.render(os.path.join(cwd,'views/404.html'), {'error':404})
     handler.response.out.write(html)
 
@@ -27,6 +28,7 @@ class GetFile(webapp.RequestHandler):
 
 
         server_path = os.path.normpath(os.path.join(cwd, 'themes', request_path))
+        logging.info("Getting file " + server_path)
         try:
             fstat=os.stat(server_path)
         except:

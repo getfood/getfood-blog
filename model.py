@@ -51,6 +51,34 @@ class Theme:
             self.mapping_cache[name]=path
             return path
 
+class AdminTheme:
+    def __init__(self, name='admin'):
+        self.name = name
+        self.mapping_cache = {}
+        self.dir = '/views/%s' % name
+        self.viewdir=os.path.join(rootpath, 'views')
+        self.server_dir = os.path.join(rootpath, 'views',self.name)
+        if os.path.exists(self.server_dir):
+            self.isZip=False
+        else:
+            self.isZip=True
+            self.server_dir += ".zip"
+        #self.server_dir=os.path.join(self.server_dir,"templates")
+        logging.debug('server_dir:%s'%self.server_dir)
+
+    def __getattr__(self, name):
+        if self.mapping_cache.has_key(name):
+            return self.mapping_cache[name]
+        else:
+            path ="/".join((self.serer_dir, name + '.html'))
+            logging.debug('path:%s'%path)
+##			if not os.path.exists(path):
+##				path = os.path.join(rootpath, 'themes', 'default', 'templates', name + '.html')
+##				if not os.path.exists(path):
+##					path = None
+            self.mapping_cache[name]=path
+            return path
+
 class ThemeIterator:
     def __init__(self, theme_path='themes'):
         self.iterating = False
@@ -181,6 +209,7 @@ class Blog(db.Model):
     allow_trackback=db.BooleanProperty(default=False)
     admin_essential=db.BooleanProperty(default=False)
     theme=None
+    admin_theme=AdminTheme()
     langs=None
     application=None
 
@@ -884,6 +913,7 @@ def gblog_init():
         g_blog=InitBlogData()
 
     g_blog.get_theme()
+    #g_blog.admin_theme = AdaminTheme()
     g_blog.rootdir=os.path.dirname(__file__)
     return g_blog
 

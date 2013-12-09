@@ -427,6 +427,7 @@ class SitemapHandler(BaseRequestHandler):
 class Error404(BaseRequestHandler):
     @cache(time=36000)
     def get(self,slug=None):
+        logging.info("Path not found: " + self.request.path)
         self.error(404)
 
 class Post_comment(BaseRequestHandler):

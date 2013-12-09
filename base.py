@@ -332,8 +332,9 @@ class BaseRequestHandler(webapp.RequestHandler):
         Helper method to render the appropriate template
         """
         self.template_vals.update(template_vals)
-        path = os.path.join(os.path.dirname(__file__), template_file)
-        self.response.out.write(unicode(template.render(path, self.template_vals)))
+        #path = os.path.join(os.path.dirname(__file__), template_file)
+        name = template_file.split('/')[-1]
+        self.response.out.write(unicode(micolog_template.render(self.blog.admin_theme, name, self.template_vals)))
 
     def param(self, name, **kw):
         return self.request.get(name, **kw)
