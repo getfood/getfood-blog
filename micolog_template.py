@@ -61,6 +61,7 @@ import django.template
 import django.template.loader
 
 from google.appengine.ext import webapp
+from django.template import TemplateDoesNotExist
 
 def render(theme,template_file, template_dict, debug=False):
   """Renders the template at the given path with the given dict of values.
@@ -108,6 +109,15 @@ def load(theme,template_file, debug=False):
         }
     old_settings = _swap_settings(new_settings)
     try:
+      template = django.template.loader.get_template(template_file)
+    except TemplateDoesNotExist:
+      new_settings = {
+        'TEMPLATE_DIRS': (theme.viewdir,),
+        'TEMPLATE_DEBUG': debug,
+        'DEBUG': debug,
+        }
+      _swap_settings(new_settings)
+      logging.debug("theme_path:%s,abspath:%s"%(theme_path,abspath))
       template = django.template.loader.get_template(template_file)
     finally:
         _swap_settings(old_settings)

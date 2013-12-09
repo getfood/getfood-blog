@@ -28,7 +28,7 @@ class Theme:
         self.name = name
         self.mapping_cache = {}
         self.dir = '/themes/%s' % name
-        self.viewdir=os.path.join(rootpath, 'view')
+        self.viewdir=os.path.join(rootpath, 'views')
         self.server_dir = os.path.join(rootpath, 'themes',self.name)
         if os.path.exists(self.server_dir):
             self.isZip=False
