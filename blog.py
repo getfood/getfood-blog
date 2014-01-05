@@ -221,13 +221,13 @@ class SinglePost(BasePublicPage):
 
         if entry.entrytype=='post':
             self.render('single',
-                        dict(entry=entry, relateposts=entry.relateposts, comments=comments, user_name=commentuser[0],
+                        dict(entry=entry, comments=comments, user_name=commentuser[0],
                              user_email=commentuser[1], user_url=commentuser[2], checknum1=random.randint(1, 10),
                              checknum2=random.randint(1, 10), comments_nav=comments_nav))
 
         else:
             self.render('page',
-                        dict(entry=entry, relateposts=entry.relateposts, comments=comments, user_name=commentuser[0],
+                        dict(entry=entry, comments=comments, user_name=commentuser[0],
                              user_email=commentuser[1], user_url=commentuser[2], checknum1=random.randint(1, 10),
                              checknum2=random.randint(1, 10), comments_nav=comments_nav))
 
