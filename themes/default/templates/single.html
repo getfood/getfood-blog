@@ -2,8 +2,7 @@
 {% block title %} {{entry.title}} - {{blog.title}} {% endblock %}
 {% block content%}
 
-<div class="ctop"></div>
-<div class="box">
+<div class="content">
 
 {% if entry %}
 
@@ -52,12 +51,10 @@ Trackback:<a href='{{entry.trackbackurl|safe}}'>{{entry.trackbackurl}}</a>
 {%endmf%}
 </div>
 </div>
-<div class="cbottom"></div>
 <div class="space"></div>
 
 
-<div class="ctop"></div>
-<div class="box">
+<div class="content">
 {% include "comment_disqus.html" %}
 
 <!-- You can start editing here. -->
@@ -81,7 +78,6 @@ Trackback:<a href='{{entry.trackbackurl|safe}}'>{{entry.trackbackurl}}</a>
 <p class="nocomments">ÆÀÂÛÒÑ¹Ø±Õ</p>
 {% endif %}
 </div>
-<div class="cbottom"></div>
 <div class="space"></div>
 
 {%endif%}

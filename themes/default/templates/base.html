@@ -5,7 +5,11 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8;" />
 <meta name="wumiiVerification" content="054c2189-bbbb-44a4-ab36-114c442f717f" />
 <title>{% block title %} {{ blog.title}}{% endblock %}</title>
+<!--
 <link rel="stylesheet" href="{{ blog.static_url }}/themes/{{ blog.theme_name }}/style.css" type="text/css" media="screen" />
+-->
+<link rel="stylesheet" href="{{ blog.static_url }}/themes/{{ blog.theme_name }}/blog.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" type="text/css" media="screen" />
 <link rel="alternate" type="application/atom+xml" title="{{ blog.title }} RSS Feed" href="{{ blog.feedurl }}" />
 <link rel="openid.server" href="http://www.myopenid.com/server" />
 <link rel="openid.delegate" href="http://lobatt.myopenid.com/" />
@@ -52,7 +56,7 @@ myBoxObject.applyCornersToAll();
 <div id="logo"><h1><a href="{{blog.baseurl}}/" title="{{blog.title}}">{{blog.title}}</a></h1>
 </div>
 
-<div id="menu">
+<div id="menu" class="pure-menu pure-menu-open pure-menu-horizontal">
 <ul>
 		<li class="{%if ishome%}current_page_item{%else%}page_item{%endif%}" >
 			<a  href="{{ blog.baseurl }}"  >Home</a>
@@ -90,8 +94,8 @@ myBoxObject.applyCornersToAll();
 </div>
 
 </div>
-<div id="content">
-<div id="split">
+<div id="layout" class="pure-g-r">
+<div class="pure-u-3-4">
 
 {%block content %}{%endblock%}
 
@@ -101,11 +105,10 @@ myBoxObject.applyCornersToAll();
 </div>
 
 
-<div id="push"></div>
 <div id="footer">
 {%mf footer%}
 	<div class="footer">
-			<p class="fooleft">{{blog.title}} is proudly powered by <a href="http://xuming.net">Micolog</a>. Theme by <a href="http://bob.my/" title="Simple">Bob</a></p>
+			<p class="fooleft">{{blog.title}} is based on <a href="http://xuming.net">Micolog</a>. Theme created using <a href="http://purecss.io/" title="Simple">Pure</a></p>
 		<p class="fooright"><a href="#top" title="Top">top</a></p>
 	</div>
 {%endmf%}
