@@ -655,6 +655,9 @@ class Other(BaseRequestHandler):
         else:
             self.error(404)
 
+def getZipHandler(**args):
+    return ('/xheditor/(.*)',zipserve.make_zip_handler('''D:\\Projects\\eric-guo\\plugins\\xheditor\\xheditor.zip'''))
+
 #def main():
 webapp.template.register_template_library('app.filter')
 webapp.template.register_template_library('app.recurse')

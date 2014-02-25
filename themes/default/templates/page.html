@@ -7,27 +7,25 @@
 {% endif %}
 {% endblock %}
 {% block content%}
-<div class="content">
+<div>
 
 {% if entry %}
 
-<div id="post-{{entry.key}}">
-<div class="nifty"><h2><a href="/{{ entry.link }}" rel="bookmark" title="Permanent Link to {{entry.title}}">{{entry.title}}</a> <span class="date">{{entry.date|datetz:"F jS, Y"}}</span></h2></div>
+	<div id="post-{{entry.key}}">
+		<div class="nifty"><h2><a href="/{{ entry.link }}" rel="bookmark" title="Permanent Link to {{entry.title}}">{{entry.title}}</a> <span class="date">{{entry.date|datetz:"F jS, Y"}}</span></h2></div>
 
-{{ entry.content|safe }}
-<div class="meta">{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit this entry</a>  {%endif%}  </div>
+		{{ entry.content|safe }}
+		<div class="meta">{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit this entry</a>  {%endif%}  </div>
 
-</div>
-</div>
-<div class="space"></div>
+	</div>
+	<div class="space"></div>
 
 
-<div class="content">
-{% include "comment_disqus.html" %}
-</div>
-<div class="space"></div>
+	<div>
+	{% include "comment_disqus.html" %}
+	</div>
+	<div class="space"></div>
 
 {%endif%}
 </div>
-{% include "sidebar.html" %}
 {% endblock %}

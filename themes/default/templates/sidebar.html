@@ -1,35 +1,57 @@
-<div class="sidebar pure-u-1-4">
-	<div class="content">
-	<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
-	<a href="http://feed.w3.org/check.cgi?url=http%3A//blog.perlfect.me/feed"><img src="/static/images/valid-atom.png" alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
-	</div>
-	<div class="content">
-	 <h2>Categories</h2>
-	  <ul>
-		{%for cate in categories%}
-	  <li>	<a href="/category/{{cate.slug}}">{{cate.name}}({{cate.count}})</a></li>
-		{%endfor%}
+<div class="header">
+	<hgroup>
+		<h1 class="brand-title">{{ blog.title }}</h1>
+		<h2 class="brand-tagline">{{ blog.subtitle }}</h2>
+	</hgroup>
+
+	<nav class="nav">
+		<ul class="nav-list">
+			<li class="nav-item" >
+				<a class="pure-button" href="{{ blog.baseurl }}"  >Home</a>
+			</li>
+
+			{% for page in menu_pages %}
+				{% if page.is_external_page %}
+				<li class="nav-item"><a class="pure-button" href="{{page.link}}" target={{page.target}} >{{page.title}}</a></li>
+				{% else %}
+				<li class="nav-item"><a class="pure-button" href="/{{page.link}}" target={{page.target}} >{{page.title}}</a></li>
+				{% endif %}
+			{% endfor %}
+			{% block topmenu %}{% endblock %}
+
+			{%mf nav_menu%}
+			{%endmf%}
+
 		</ul>
 
-	</div>
+	</nav>
+	<ul class="nav-list">
+		<li class="nav-item" >
+			<div id="searchbox" >
 
-	<div class="content">
-		<h2>Links</h2>
-		<ul>
-		{%for link in blogroll%}
-		<li><a href="{{link.href}}">{{link.linktext}}</a></li>
-		{%endfor%}
-		</ul>
-	</div>
-	<div id="googlead" class="content">
-		<script type="text/javascript">
-		google_ad_client = "pub-6293971471163289";
-		google_ad_slot = "1503208580";
-		google_ad_width = 200;
-		google_ad_height = 200;
-		</script>
-		<script type="text/javascript"
-		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-		</script>
-	</div>
+			<form method="get" id="searchform" action="http://www.google.com/search">
+					<input type="text" value="Search..." onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}" name="as_q" id="s" />
+					<input type="image" src="{{ blog.static_url }}/themes/{{ blog.theme_name }}/images/transparent.gif" id="go" alt="Search" title="Search" />
+					<input name="as_sitesearch" value="{{blog.domain}}" type="hidden">
+
+					</form>
+
+			</div>
+		</li>
+		<li>
+			<div id="googlead" class="nav-item" >
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- getfood-nav-responsive -->
+				<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-6293971471163289"
+					 data-ad-slot="6028810682"
+					 data-ad-format="auto"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+		</li>
+	</ul>
 </div>
+

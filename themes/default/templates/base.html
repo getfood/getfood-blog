@@ -3,126 +3,103 @@
 <head profile="http://gmpg.org/xfn/11">
 {%mf head%}
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8;" />
-<meta name="wumiiVerification" content="054c2189-bbbb-44a4-ab36-114c442f717f" />
- <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="wumiiVerification" content="d486263d-9b90-4367-980a-24d2da8f4168" />
 <title>{% block title %} {{ blog.title}}{% endblock %}</title>
 <!--
 <link rel="stylesheet" href="{{ blog.static_url }}/themes/{{ blog.theme_name }}/style.css" type="text/css" media="screen" />
 -->
-<link rel="stylesheet" href="{{ blog.static_url }}/themes/{{ blog.theme_name }}/blog.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" type="text/css" media="screen" />
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/main-grid-old-ie.css" media="screen"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="{{ blog.static_url }}/themes/{{ blog.theme_name }}/css/main-grid.css" media="screen"/>
+    <!--<![endif]-->
+
+
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="{{ blog.static_url }}/themes/{{ blog.theme_name }}/css/layouts/blog-old-ie.css" media="screen"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="{{ blog.static_url }}/themes/{{ blog.theme_name }}/css/layouts/blog.css"  media="screen"/>
+    <!--<![endif]-->
+
 <link rel="alternate" type="application/atom+xml" title="{{ blog.title }} RSS Feed" href="{{ blog.feedurl }}" />
-<link rel="openid.server" href="http://www.myopenid.com/server" />
-<link rel="openid.delegate" href="http://lobatt.myopenid.com/" />
 <link href="{{ blog.static_url }}/static/wlwmanifest.xml" type="application/wlwmanifest+xml" rel="wlwmanifest"/>
 <link rel="EditURI" type="application/rsd+xml" href="{{ blog.static_url }}/static/rsd.xml" />
 <script type="text/javascript" src="{{ blog.static_url }}/themes/{{ blog.theme_name }}/rounded_corners_lite.inc.js"></script>
 <script type="text/javascript" src="{{ blog.static_url }}/static/js/jquery-1.3.2.min.js"></script>
 {% block head_block %}
-<meta name="Keywords" content="perlfect,blog,perl,programming,IT,freewheel">
-<meta name="Description" content="This is a blog of Lobatt(LICH) on Google App Engine, a temporal home for perlfect blog, or maybe longer...">
-<meta name="geo.placename" content="Beijing, China" />
-<meta name="geo.position" content="39.904667;116.408198" />
-<meta name="geo.region" content="CN-Beijing" />
-<meta name="ICBM" content="39.904667, 116.408198" />
+<meta name="Keywords" content="food, restaurant, NYC, New York, 美食，纽约，餐馆，指南">
+<meta name="Description" content="This is a blog for who visiting New York City and looking for food and restaurant recomendations">
 {% endblock %}
-<script type="text/JavaScript">
-window.onload = function()
-{
-settings = {
-tl: { radius: 5 },
-tr: { radius: 5 },
-bl: { radius: 5 },
-br: { radius: 5 },
-antiAlias: true,
-autoPad: true,
-validTags: ["div"]
-}
-var myBoxObject = new curvyCorners(settings, "nifty");
-myBoxObject.applyCornersToAll();
-var myBoxObject = new curvyCorners(settings, "meta");
-myBoxObject.applyCornersToAll();
-var myBoxObject = new curvyCorners(settings, "sidebar");
-myBoxObject.applyCornersToAll();
-}
-</script>
 {%endmf%}
 </head>
 
 <body>
-<div id="main">
-<div id="wrapper">
 
 <div id="top">
-<div id="logo"><h1><a href="{{blog.baseurl}}/" title="{{blog.title}}">{{blog.title}}</a></h1>
+	<div id="layout" class="pure-g">
+		<div class="sidebar pure-u-1 pure-u-med-1-4">
+			{% include "sidebar.html" %}
+		</div>
+		<div class="content pure-u-1 pure-u-med-3-4">
+			<div>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- leaderboard-responsive -->
+				<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-6293971471163289"
+					 data-ad-slot="7221499088"
+					 data-ad-format="auto"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+
+			{%block content %}{%endblock%}
+
+			<div id="footer">
+			{%mf footer%}
+				<div class="footer">
+						<p class="fooleft">{{blog.title}} is based on <a href="http://xuming.net">Micolog</a>. Theme created using <a href="http://purecss.io/" title="Simple">Pure</a></p>
+
+						<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+						<a href="http://feed.w3.org/check.cgi?url=http%3A//www.getfoodnyc.info/feed"><img src="/static/images/valid-atom.png" alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a></p>
+					<p class="fooright"><a href="#top" title="Top">top</a></p>
+				</div>
+			{%endmf%}
+			</div>
+		</div>
 </div>
+<!-- disqus -->
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'getfoodnyc'; // required: replace example with your forum shortname
 
-<div id="menu" class="pure-menu pure-menu-open pure-menu-horizontal">
-<ul>
-		<li class="{%if ishome%}current_page_item{%else%}page_item{%endif%}" >
-			<a  href="{{ blog.baseurl }}"  >Home</a>
-		</li>
-		{{self.m_list_pages|safe}}
-    {% block topmenu %}{% endblock %}
-
-    {%if self.is_admin or self.author%}
-     <li><a href="/admin">Admin</a> </li>
-    {%endif%}
-      <li>
-     {%if self.is_login%}
-
-       <a href="{{self.logouturl}}">Logout</a>
-
-     {%else%}
-       <a href="/admin">Login</a>
-
-     {%endif%}
-         </li>
-{%mf nav_menu%}
-{%endmf%}
-<li id="searchbox">
-
-<form method="get" id="searchform" action="http://www.google.com/search">
-		<input type="text" value="Search..." onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}" name="as_q" id="s" />
-		<input type="image" src="{{ blog.static_url }}/themes/{{ blog.theme_name }}/images/transparent.gif" id="go" alt="Search" title="Search" />
-		<input name="as_sitesearch" value="{{blog.domain}}" type="hidden">
-
-		</form>
-
-</li>
-
-</ul>
-</div>
-
-</div>
-<div id="layout" class="pure-g-r">
-<div class="pure-u-3-4">
-
-{%block content %}{%endblock%}
-
-
-</div>
-</div>
-</div>
-
-
-<div id="footer">
-{%mf footer%}
-	<div class="footer">
-			<p class="fooleft">{{blog.title}} is based on <a href="http://xuming.net">Micolog</a>. Theme created using <a href="http://purecss.io/" title="Simple">Pure</a></p>
-		<p class="fooright"><a href="#top" title="Top">top</a></p>
-	</div>
-{%endmf%}
-</div>
-<!-- disqus code
-<script type="text/javascript">
-var disqus_shortname = 'perlfectblog';
-(function () {
-	  var s = document.createElement('script'); s.async = true;
-	    s.src = 'http://disqus.com/forums/perlfectblog/count.js';
-		  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+<!-- end disqus -->
+<!-- YUI -->
+<script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
+<script>
+YUI().use('node-base', 'node-event-delegate', function (Y) {
+    // This just makes sure that the href="#" attached to the <a> elements
+    // don't scroll you back up the page.
+    Y.one('body').delegate('click', function (e) {
+        e.preventDefault();
+    }, 'a[href="#"]');
+});
 </script>
-end for disqus code-->
+<!-- end TUI --> 
 </body>
 </html>

@@ -28,12 +28,7 @@
 {%endfor%}
 
 		<guid isPermaLink="false">{{ blog.baseurl }}/?p={{entry.post_id}}</guid>
-		<description><![CDATA[{{entry.excerpt|escape}}]]></description>
-			<content:encoded><![CDATA[{{entry.content|safe}}
-<p>本文网址:<a href="{{blog.baseurl}}/{{entry.link|escape}}">{{blog.baseurl}}/{{entry.link|escape}}</a></p>
-]]></content:encoded>
-			<wfw:commentRss>{{ blog.feedurl }}/comments</wfw:commentRss>
-		<slash:comments>{{entry.commentcount}}</slash:comments>
+		<description>{{entry.content|escape}}</description>
 		</item>{%endfor%}
 	</channel>
 </rss>

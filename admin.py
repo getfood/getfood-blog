@@ -379,7 +379,6 @@ class admin_setup(base.BaseRequestHandler):
 class admin_entry(base.BaseRequestHandler):
     def __init__(self, request=None, response=None):
         base.BaseRequestHandler.__init__(self,request, response)
-        self.response.headers.add_header('Access-Control-Allow-Origin', '*')
         self.current='write'
 
     @base.requires_admin
