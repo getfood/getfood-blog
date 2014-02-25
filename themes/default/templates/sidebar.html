@@ -1,40 +1,35 @@
 <div class="sidebar pure-u-1-4">
-<ul>
-<li>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
-<a href="http://feed.w3.org/check.cgi?url=http%3A//blog.perlfect.me/feed"><img src="/static/images/valid-atom.png" alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
-</li>
-<li>
- <h2>Categories</h2>
-  <ul>
- 	{%for cate in categories%}
-  <li>	<a href="/category/{{cate.slug}}">{{cate.name}}({{cate.count}})</a></li>
- 	{%endfor%}
- 	</ul>
+	<div class="content">
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+	<a href="http://feed.w3.org/check.cgi?url=http%3A//blog.perlfect.me/feed"><img src="/static/images/valid-atom.png" alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+	</div>
+	<div class="content">
+	 <h2>Categories</h2>
+	  <ul>
+		{%for cate in categories%}
+	  <li>	<a href="/category/{{cate.slug}}">{{cate.name}}({{cate.count}})</a></li>
+		{%endfor%}
+		</ul>
 
-</li>
+	</div>
 
-<li>
-<h2>Links</h2>
-<ul>
-{%for link in blogroll%}
-<li><a href="{{link.href}}">{{link.linktext}}</a></li>
-{%endfor%}
-</ul>
-</li>
-<li>
-</li>
-<li>
-<div id="googlead">
-<script type="text/javascript">
-google_ad_client = "pub-6293971471163289";
-google_ad_slot = "1503208580";
-google_ad_width = 200;
-google_ad_height = 200;
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>
-</li>
-</ul>
+	<div class="content">
+		<h2>Links</h2>
+		<ul>
+		{%for link in blogroll%}
+		<li><a href="{{link.href}}">{{link.linktext}}</a></li>
+		{%endfor%}
+		</ul>
+	</div>
+	<div id="googlead" class="content">
+		<script type="text/javascript">
+		google_ad_client = "pub-6293971471163289";
+		google_ad_slot = "1503208580";
+		google_ad_width = 200;
+		google_ad_height = 200;
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
 </div>

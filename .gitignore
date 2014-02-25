@@ -5,6 +5,7 @@
 *.pyo
 .bzr
 .bzrignore
+humans.txt
 psd
 config.py
 app.yaml
