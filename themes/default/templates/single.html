@@ -6,7 +6,7 @@
 
 	{% if entry %}
 
-	<div id="post-{{entry.key}}">
+	<div class="content-post" id="post-{{entry.key}}">
 		<div class="nifty"><h2><a href="/{{ entry.link|safe }}" rel="bookmark" title="Permanent Link to {{entry.title}}">{{entry.title}}</a> <span class="date">{{entry.date|datetz:"F jS, Y"}}</span></h2></div>
 		{%mf entry_content %}
 		{{ entry.content|safe }}
@@ -48,11 +48,6 @@
 		</div>
 		<div class="meta">
 			{% if entry.strtags %}Tags: {%for tag in entry.tags%}<a href="/tag/{{tag|urlencode}}">{{tag}}</a> {%endfor%}<br><br>{%endif%}  Posted in {%for cate in entry.categories%} <a href="/category/{{cate.slug}}">{{cate.name}}</a> {%endfor%} | {%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a>  {%endif%}
-			{%if blog.allow_trackback and entry.allow_trackback%}
-				<div style="padding:2px 0">
-				Trackback:<a href='{{entry.trackbackurl|safe}}'>{{entry.trackbackurl}}</a>
-				</div>
-			{%endif%}
 		</div>
 		{%endmf%}
 		</div>
