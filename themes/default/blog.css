@@ -168,6 +168,10 @@ a:focus {
         position: static;
     }
 
+	.hide-for-mobile {
+		display: none;
+	}
+
     #layout {
         padding: 0;
     }

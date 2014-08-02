@@ -6,11 +6,14 @@
 
 	{% if entry %}
 
-	<div class="content-post" id="post-{{entry.key}}">
+	<div class="content-post-container" id="post-{{entry.key}}">
 		<div class="nifty"><h2><a href="/{{ entry.link|safe }}" rel="bookmark" title="Permanent Link to {{entry.title}}">{{entry.title}}</a> <span class="date">{{entry.date|datetz:"F jS, Y"}}</span></h2></div>
+		<div class="content-post">
 		{%mf entry_content %}
 		{{ entry.content|safe }}
-		<!-- responsive google ads -->
+		{%endmf%}
+		</div>
+		<!-- responsive google ads  -->
 		<div>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<!-- post-responsive -->
@@ -40,7 +43,6 @@
 				{%for tag in entry.tags%}<a rel="tag">{{tag}}</a>{%endfor%}
 		</p>
 		<!-- wumii -->
-		{%endmf%}
 		{%mf after_entry_content%}
 		<div class=share>
 			<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮
